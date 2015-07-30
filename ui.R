@@ -2,6 +2,12 @@ library(shiny)
 library(data.table)
 library(dplyr)
 library(ggplot2)
+library(httr)
+library(RJSONIO)
+library(knitr)
+library(rmarkdown)
+library(htmltools)
+library(jsonlite)
 
 shinyUI(fluidPage(
 
