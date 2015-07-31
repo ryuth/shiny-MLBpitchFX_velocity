@@ -1,4 +1,5 @@
 library(shiny)
+library(shinyapps)
 library(data.table)
 library(dplyr)
 library(ggplot2)
@@ -8,19 +9,19 @@ library(knitr)
 library(rmarkdown)
 library(htmltools)
 library(jsonlite)
-
-data <- data.table::fread(input="final_master_table.csv",header = TRUE, data.table = TRUE)
-data <- data[,V1:=NULL]
+library(BatchJobs)
+library(BBmisc)
 
 shinyServer(function(input, output){
-
+  
   selected_data <- reactive({
+    
     
     minyear <- input$year[1]
     maxyear <- input$year[2]
     
-    velo <- data %>% group_by(pitcher_name, pitch_type, Year) %>% summarise(velocity = mean(start_speed)) %>%
-      arrange(velocity) %>% filter(pitcher_name %in% input$pitcher_name) %>% arrange(pitcher_name) %>% filter(Year >= minyear) %>% filter(Year <= maxyear) %>% filter(pitch_type %in% input$pitch_type)
+    velo <- pitch_data %>% group_by(pitcher_name, pitch_type, Year) %>% summarise(velocity = mean(start_speed)) %>%
+      arrange(velocity) %>% dplyr::filter(pitcher_name %in% input$pitcher_name) %>% dplyr::arrange(pitcher_name) %>% dplyr::filter(Year >= minyear) %>% dplyr::filter(Year <= maxyear) %>% dplyr::filter(pitch_type %in% input$pitch_type)
     print(velo)
   })
   
@@ -30,6 +31,5 @@ shinyServer(function(input, output){
     print(p)
   })
   
-   showLogs(appPath = getwd(), appName = "MLB_pitcher_velocity_analysis")
-
+  showLogs(appPath = getwd(), appName = "MLB_pitcher")
 })
