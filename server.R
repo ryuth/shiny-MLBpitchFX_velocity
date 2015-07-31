@@ -30,5 +30,6 @@ shinyServer(function(input, output){
     print(p)
   })
   
-  
+   showLogs(appPath = getwd(), appName = "MLB_pitcher_velocity_analysis")
+
 })
