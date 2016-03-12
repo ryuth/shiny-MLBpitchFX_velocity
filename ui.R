@@ -23,7 +23,7 @@ sidebarLayout(
     
     selectInput("pitch_type","Pitch Type:", choices = unique(pitch_type$x), selected = "SI"),
     
-    helpText("Year-by_year velocity of all pitches by all pitchers from 2008 season to 2015. Future goal is to do velocity projection of upcoming season using age curve")
+    helpText("Year-by_year velocity of all pitches by all pitchers from 2008 season to 2015 season. Future goal is to do velocity projection of upcoming season using age curve")
 
     
   ),
