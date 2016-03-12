@@ -1,2 +1,2 @@
 # shiny-MLBpitchFX_velocity
-# R shiny app that analyzes pitch velocity from 2008 to today
+# Interactive graph that shows average velocity of all pitches by all pitchers from 2008 season to 2015 season.
