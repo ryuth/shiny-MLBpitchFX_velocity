@@ -23,8 +23,8 @@ sidebarLayout(
     
     selectInput("pitch_type","Pitch Type:", choices = unique(pitch_type$x), selected = "SI"),
     
-    helpText("Please wait 20 seconds for 2008 to 2015 pitchFx data to load at the launch of this program.
-             You can also type in the pitcher name in the drop box menu to look for pitcher of your interest")
+    helpText("Year-by_year velocity of all pitches by all pitchers from 2008 season to 2015. Future goal is to do velocity projection of upcoming season using age curve")
+
     
   ),
   
